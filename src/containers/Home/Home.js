@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton } from 'components';
+import { CounterButton, GithubButton, HomeJumbotron } from 'components';
 
 export default class Home extends Component {
   render() {
@@ -9,6 +9,16 @@ export default class Home extends Component {
     const logoImage = require('./logo.png');
     return (
       <div>
+      <HomeJumbotron
+          miniHeaders={[{
+            image: 'https://pmcvariety.files.wordpress.com/2015/06/taylor-swift-apple-streaming.jpg?w=670&h=377&crop=1',
+            author: 'author 1',
+            title: 'This is title 1',
+          }, {
+            image: 'http://s3.amazonaws.com/bounceboat-corporate-site-staging-media/2015/07/chromeo-color.jpg',
+            author: 'author 2',
+            title: 'This is title 2',
+          }]} />
         <div className={styles.masthead}>
           <div className="container">
             <div className={styles.logo}>

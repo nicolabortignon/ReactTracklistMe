@@ -1,29 +1,24 @@
-import React, {Component, PropTypes} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {load} from 'redux/modules/artist';
+import React, {Component, PropTypes } from 'react';
 
-@connect(
-    state => ({artist: state.info.data}),
-    dispatch => bindActionCreators({load}, dispatch))
-export default class InfoBar extends Component {
-  static propTypes = {
-    artist: PropTypes.object,
-    load: PropTypes.func.isRequired
-  }
+export default class MiniHeader extends Component {
   render() {
-    const {artist, load} = this.props; // eslint-disable-line no-shadow
     return (
-      <mini_header_component onClick={load} >
-        <img src={artist.avatar}/>
+      <mini_header_component onClick={this.props.onClick}>
+        <img src={this.props.image}/>
         <description>
           <text_description>
-            <author> author </author>
-            <title>{artist.displayName}</title>
+            <author> {this.props.author} </author>
+            <title>{this.props.title}</title>
            </text_description>
-            <button className="btn btn-primary" onClick={load}>Reload from server</button>
         </description>
       </mini_header_component>
     );
   }
 }
+
+MiniHeader.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  image: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};

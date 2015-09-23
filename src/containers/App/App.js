@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar, MainHeaderBanner, MiniHeader } from 'components';
+import { InfoBar } from 'components';
 import { createTransitionHook } from 'helpers/universalRouter';
 
 const title = 'React Redux Example';
@@ -107,7 +107,7 @@ export default class App extends Component {
               <li className="dropdownBackground dropdownBorder">
                 <a href="#"><img src={logo} /></a>
                 <ul>
-                  <li><a href="#">Artists &amp; bands</a></li>
+                  <li><Link to="/widgets"><a href="#">Artists &amp; bands</a></Link></li>
                   <li><a href="#">Genres</a></li>
                   <li><a href="#">Labels</a></li>
                 </ul>
@@ -149,9 +149,7 @@ export default class App extends Component {
         <div className={styles.appContent}>
           {this.props.children}
         </div>
-        <MainHeaderBanner/>
         <InfoBar/>
-        <MiniHeader/>
         <div className="well text-center">
           Have questions? Ask for help <a
           href="https://github.com/erikras/react-redux-universal-hot-example/issues"

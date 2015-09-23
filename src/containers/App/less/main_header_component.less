@@ -1,43 +1,30 @@
-.header { 
+main_header_component{
+   background-color: #00f;
+   display: block;
+   position: relative;
+   overflow: hidden;
+   height: 500px;
+   width: 100%;
+   background-size: cover; 
+   padding: 20px;
+}
+
+.highlight_band{
   position: relative;
-  height: 500px;
-  width: 100%; 
-  margin-bottom: @header-margin-bottom + @navbar-height;
-  overflow: hidden; // Hide overflow to contain the background
- 
-}
-.header_shades_holder{
-  position: absolute;
-  height: 500px;
-  width: 100%; 
-  clip: rect(0, auto, auto, 0);
-}
-.header_background {
-    position: absolute;
-    top: -@navbar-height;
-    left: 0;
-    width: 100%;
-    // Where the magic happens 
-    -webkit-transform: translate3d(0, 0, 0);
-}
-.header_grey_overlay{
-  position: fixed;
-  top:  @navbar-height  ;
-  height:  500px - @navbar-height;
+  top: 310px;
   width: 100%;
-  background-color: @header-background-shades;
+  height: 150px;
+  background-color: fade(@brand-darkest, 65);
 }
-.header_title { 
-    position: relative;
-    text-align: center;
-    font-size: 5em;
-    color: white;
+
+.highlight_band .cover {
+  position : relative;
+  left: 20px;
+  bottom: 30px;
+  width: 160px;
+  height: 160px;
 }
-.headerContent{ 
+.cover img{
+  border: 1px darken(@brand-neutral, 20%) solid;
   width: 100%;
-  top: @navbar-height;
-  position: absolute;
-  z-index: 2;
-  height: @navbar-height/2 + 470;
- 
 }
