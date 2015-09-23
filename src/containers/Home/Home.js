@@ -9,6 +9,7 @@ export default class Home extends Component {
     const logoImage = require('./logo.png');
     return (
       <div>
+      // Header
       <HomeJumbotron
           miniHeaders={[{
             image: 'https://pmcvariety.files.wordpress.com/2015/06/taylor-swift-apple-streaming.jpg?w=670&h=377&crop=1',
@@ -19,6 +20,7 @@ export default class Home extends Component {
             author: 'author 2',
             title: 'This is title 2',
           }]} />
+        // End of Header
         <div className={styles.masthead}>
           <div className="container">
             <div className={styles.logo}>

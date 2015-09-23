@@ -105,10 +105,10 @@ export default class App extends Component {
             </button>
             <ul className="nav navbar-nav">
               <li className="dropdownBackground dropdownBorder">
-                <a href="#"><img src={logo} /></a>
+                <Link to="/"> <img src={logo} /></Link>
                 <ul>
-                  <li><Link to="/widgets"><a href="#">Artists &amp; bands</a></Link></li>
-                  <li><a href="#">Genres</a></li>
+                  <li><Link to="/widgets"> Artists &amp; bands </Link></li>
+                  <li><Link to="/"><a href="#">Genres</a></Link></li>
                   <li><a href="#">Labels</a></li>
                 </ul>
               </li>
