@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar } from 'components';
-import { MiniHeader } from 'components';
+import { InfoBar, MainHeaderBanner, MiniHeader } from 'components';
 import { createTransitionHook } from 'helpers/universalRouter';
 
 const title = 'React Redux Example';
@@ -150,6 +149,7 @@ export default class App extends Component {
         <div className={styles.appContent}>
           {this.props.children}
         </div>
+        <MainHeaderBanner/>
         <InfoBar/>
         <MiniHeader/>
         <div className="well text-center">

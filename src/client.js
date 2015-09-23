@@ -13,6 +13,7 @@ const history = new BrowserHistory();
 const client = new ApiClient();
 
 const dest = document.getElementById('content');
+// this is the application Store. It's a singleton.
 const store = createStore(client, window.__data);
 const search = document.location.search;
 const query = search && queryString.parse(search);

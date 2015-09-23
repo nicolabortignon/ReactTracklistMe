@@ -12,3 +12,4 @@ export MiniInfoBar from './MiniInfoBar/MiniInfoBar';
 export MiniHeader from './MiniHeader/MiniHeader';
 export SurveyForm from './SurveyForm/SurveyForm';
 export WidgetForm from './WidgetForm/WidgetForm';
+export MainHeaderBanner from './MainHeaderBanner/MainHeaderBanner';
