@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar } from 'components';
 import { createTransitionHook } from 'helpers/universalRouter';
 
 const title = 'React Redux Example';
@@ -146,49 +145,16 @@ export default class App extends Component {
             </ul>
           </div>
         </nav>
-        <div className={styles.appContent}>
+        <div>
           {this.props.children}
         </div>
-        <InfoBar/>
-        <div className="well text-center">
-          Have questions? Ask for help <a
-          href="https://github.com/erikras/react-redux-universal-hot-example/issues"
-          target="_blank">on Github</a> or in the <a
-          href="http://www.reactiflux.com/" target="_blank">#react-redux-universal</a> Slack channel.
-        </div>
-      </div>
-        /*
-        <nav className="navbar navbar-default navbar-fixed-top">
-          <div className="container">
-            <ul className="nav navbar-nav">
-              <li><Link to="/widgets">Widgets</Link></li>
-              <li><Link to="/survey">Survey</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              {!user && <li><Link to="/login">Login</Link></li>}
-              {user && <li className="logout-link"><a href="/logout" onClick={::this.handleLogout}>Logout</a></li>}
-            </ul>
-            {user &&
-            <p className={styles.loggedInMessage + ' navbar-text'}>Logged in as <strong>{user.name}</strong>.</p>}
-            <ul className="nav navbar-nav navbar-right">
-              <li>
-                <a href="https://github.com/erikras/react-redux-universal-hot-example"
-                   target="_blank" title="View on Github"><i className="fa fa-github"/></a>
-              </li>
-            </ul>
+        <footer className="row darkestrow">
+          <div className="pull-right col-xs-4 col-sm-4col-md-4 col-lg-4">
+            <a href="#"><img src="/img/logoAphextwin.png" /></a>
+            <p>2014 - 2016</p>
           </div>
-        </nav>
-        <div className={styles.appContent}>
-          {this.props.children}
-        </div>
-        <InfoBar/>
-        <div className="well text-center">
-          Have questions? Ask for help <a
-          href="https://github.com/erikras/react-redux-universal-hot-example/issues"
-          target="_blank">on Github</a> or in the <a
-          href="http://www.reactiflux.com/" target="_blank">#react-redux-universal</a> Slack channel.
-        </div>
+        </footer>
       </div>
-      */
     );
   }
 }

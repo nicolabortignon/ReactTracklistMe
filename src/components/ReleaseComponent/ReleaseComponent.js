@@ -3,7 +3,7 @@ import React, {Component, PropTypes } from 'react';
 export default class ReleaseComponent extends Component {
   render() {
     return (
-        <release_component className="col-sub-xs-2 col-sub-sm-2 col-sub-md-2 col-sub-lg-2 ">
+        <release_component>
           <release_cover>
             <overlay_controllers>
               <ul className="flexbox">
@@ -19,7 +19,7 @@ export default class ReleaseComponent extends Component {
           </release_cover>
           <release_title> {this.props.title} </release_title>
           <release_artists> Dominic Eulberg, Popof, Madeon</release_artists>
-          <release_label> {this.props.labelName} </release_label>
+          <release_label> {this.props.label} </release_label>
         </release_component>
     );
   }
@@ -31,5 +31,5 @@ ReleaseComponent.propTypes = {
   cover: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  labelName: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired
 };
