@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { CounterButton, GithubButton, HomeJumbotron } from 'components';
+import { CounterButton, GithubButton, HomeJumbotron, ReleaseComponent, Headline, ReleaseSection } from 'components';
 
 export default class Home extends Component {
   render() {
@@ -9,8 +9,8 @@ export default class Home extends Component {
     const logoImage = require('./logo.png');
     return (
       <div>
-      // Header
-      <HomeJumbotron
+      /* Header */
+        <HomeJumbotron
           miniHeaders={[{
             image: 'https://pmcvariety.files.wordpress.com/2015/06/taylor-swift-apple-streaming.jpg?w=670&h=377&crop=1',
             author: 'author 1',
@@ -20,9 +20,14 @@ export default class Home extends Component {
             author: 'author 2',
             title: 'This is title 2',
           }]} />
-        // End of Header
+         <div className="container-fluid">
+          <ReleaseSection title="Release Session" />
+        </div>
         <div className={styles.masthead}>
           <div className="container">
+            <ReleaseComponent cover="http://geo-media.beatport.com/image_size/500x500/12267695.jpg"
+            title="My release title"
+            label="My label"/>
             <div className={styles.logo}>
               <p>
                 <img src={logoImage}/>
@@ -57,6 +62,8 @@ export default class Home extends Component {
         </div>
 
         <div className="container">
+          <Headline title="My Title" playAllVisible />
+          <Headline title="My Title 2 "/>
           <div className={styles.counterContainer}>
             <CounterButton/>
           </div>

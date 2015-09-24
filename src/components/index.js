@@ -14,3 +14,6 @@ export WidgetForm from './WidgetForm/WidgetForm';
 export MainHeaderBanner from './MainHeader/MainHeader';
 export MiniHeader from './MiniHeader/MiniHeader';
 export HomeJumbotron from './HomeJumbotron/HomeJumbotron';
+export ReleaseComponent from './ReleaseComponent/ReleaseComponent';
+export Headline from './Headline/Headline';
+export ReleaseSection from './ReleaseSection/ReleaseSection';
