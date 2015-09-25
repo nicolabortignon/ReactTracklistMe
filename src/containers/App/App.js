@@ -80,9 +80,9 @@ export default class App extends Component {
     const {user} = this.props;
     const styles = require('./less/aphextwin.less');
     return (
-            <div>{styles}
-         <DocumentMeta {...meta}/>
-         <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div className={styles.app}>
+        <DocumentMeta {...meta}/>
+        <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
           <div className="navbar-background"> </div>
           <div className="navbar-header">
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -114,6 +114,7 @@ export default class App extends Component {
                   <li><a href="#">Techno</a></li>
                   <li><a href="#">House</a></li>
                   {user && <li><Link to="/chat">Chat</Link></li>}
+
                   <li><Link to="/widgets">Widgets</Link></li>
                   <li><Link to="/survey">Survey</Link></li>
                   <li><Link to="/about">About Us</Link></li>
@@ -139,12 +140,13 @@ export default class App extends Component {
             </ul>
           </div>
         </nav>
-        <div>
+        <div className={styles.appContent}>
           {this.props.children}
         </div>
+        <InfoBar/>
         <footer className="row darkestrow">
           <div className="pull-right col-xs-4 col-sm-4col-md-4 col-lg-4">
-            <a href="#"><img src="/img/logoAphextwin.png" /></a>
+            <a href="#"><img src={logo} /></a>
             <p>2014 - 2016</p>
           </div>
         </footer>

@@ -30,10 +30,9 @@ export default class Login extends Component {
   }
 
   render() {
-    const {user, logout} = this.props;
-    const styles = require('./Login.scss');
+    const {user, logout} = this.props; 
     return (
-      <div className={styles.loginPage + ' container'}>
+      <div className={' container'}>
         <DocumentMeta title="React Redux Example: Login"/>
         <h1>Login</h1>
         {!user &&

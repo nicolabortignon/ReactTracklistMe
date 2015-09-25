@@ -1,20 +1,47 @@
-import React, { Component } from 'react';
-import { HomeJumbotron, ReleaseSection, ArtistSection, StuffPicksSection, BlogSection } from 'components';
+import React, { Component, PropTypes } from 'react';
+import {ReleaseSection, ArtistSection, StuffPicksSection, BlogSection } from 'components';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { isLoaded, load } from 'redux/modules/track';
 
-export default class Home extends Component {
+@connect(
+    state => ({track: state.track}),
+    dispatch => bindActionCreators({load}, dispatch))
+
+export default class Track extends Component {
+  static propTypes = {
+    track: PropTypes.object,
+    props: PropTypes.object,
+    load: PropTypes.func.isRequired
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // I'd like to do something like the following every time the props change
+    if( nextProps.params.id !== this.props.params.id) {
+      this.context.store.dispatch(load(nextProps.params.id));
+    }
+  }
+
+
+  // This is for the server side fetching of the data
+  static fetchData(store) {
+    const promises = [];
+    if (!isLoaded(store.getState())) {
+      //I'd like to have the current this.params.id to pass inside load.
+      promises.push(store.dispatch(load()));
+    }
+    return Promise.all(promises);
+  }
+
   render() {
+    const {track} = this.props; // eslint-disable-line no-shadow
+    // require the logo image both from client and server
     return (
-       <div>
-        <HomeJumbotron
-          miniHeaders={[{
-            image: 'https://pmcvariety.files.wordpress.com/2015/06/taylor-swift-apple-streaming.jpg?w=670&h=377&crop=1',
-            author: 'author 1',
-            title: 'This is title 1',
-          }, {
-            image: 'http://s3.amazonaws.com/bounceboat-corporate-site-staging-media/2015/07/chromeo-color.jpg',
-            author: 'author 2',
-            title: 'This is title 2',
-          }]} />
+      <div>
+          {this.props} 
+          {track}
+          <br /><br /><br /><br />
+          <br /><br /><br /><br /><a> test </a>
          <div className="container-fluid">
           <div className="row margin-bottom">
             <ReleaseSection title="Release Session" releases={[
