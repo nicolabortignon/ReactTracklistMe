@@ -106,7 +106,7 @@ export default class App extends Component {
               <li className="dropdownBackground dropdownBorder">
                 <Link to="/"> <img src={logo} /></Link>
                 <ul>
-                  <li><Link to="/widgets"> Artists &amp; bands </Link></li>
+                  <li><Link to="/track"> Artists &amp; bands </Link></li>
                   <li><Link to="/"><a href="#">Genres</a></Link></li>
                   <li><a href="#">Labels</a></li>
                 </ul>
