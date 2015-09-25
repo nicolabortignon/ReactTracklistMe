@@ -1,13 +1,39 @@
-import React, { Component } from 'react';
-import { HomeJumbotron, ReleaseSection, ArtistSection, StuffPicksSection, BlogSection } from 'components';
+import React, { Component, PropTypes } from 'react';
+import {ReleaseSection, ArtistSection, StuffPicksSection, BlogSection } from 'components';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { isLoaded, load } from 'redux/modules/track';
+
+@connect(
+    state => ({info: state.info.data}),
+    dispatch => bindActionCreators({load}, dispatch))
 
 export default class Track extends Component {
+  static propTypes = {
+    info: PropTypes.object,
+    load: PropTypes.func.isRequired
+  }
+  static fetchData(store) {
+    const promises = [];
+    if (!isLoaded(store.getState())) {
+      promises.push(store.dispatch(load()));
+    }
+    return Promise.all(promises);
+  }
+
   render() {
+    const {info, load} = this.props; // eslint-disable-line no-shadow
     // require the logo image both from client and server
     return (
       <div>
           test <br /><br /><br /><br />
-          test <br /><br /><br /><br />
+          props<br /><br /><br /><br />
+          { }
+          <span>-----------</span> <br/>
+
+          <br /><br /><br /><br />
+          {info ? info.message : 'no info!'}
+          <br /><br /><br /><br /><a onClick={load()}> test </a>
          <div className="container-fluid">
           <div className="row margin-bottom">
             <ReleaseSection title="Release Session" releases={[

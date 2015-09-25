@@ -19,7 +19,7 @@ export default function(store) {
       <Route path="/" component={Home}/>
       <Route path="/widgets" component={Widgets}/>
       <Route path="/about" component={About}/>
-      <Route path="/track" component={Track}/>
+      <Route path="/track/:id" component={Track}/>
       <Route path="/login" component={Login}/>
       <Route component={RequireLogin} onEnter={RequireLogin.onEnter(store)}>
         <Route path="/loginSuccess" component={LoginSuccess}/>
