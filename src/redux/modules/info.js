@@ -5,7 +5,7 @@ const LOAD_FAIL = 'redux-example/LOAD_FAIL';
 const initialState = {
   loaded: false
 };
-// this is a reducer (prevState,action) => nextState
+
 export default function info(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD:
