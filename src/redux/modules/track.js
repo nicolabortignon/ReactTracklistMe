@@ -33,12 +33,12 @@ export default function track(state = initialState, action = {}) {
 }
 
 export function isLoaded(globalState) {
-  return globalState.info && globalState.info.loaded;
+  return globalState.track && globalState.track.loaded;
 }
 
 export function load(trackId) {
   return {
     types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
-    promise: (client) => client.get('/tracks/'+trackId)
+    promise: (client) => client.get('/tracks/' + trackId)
   };
 }

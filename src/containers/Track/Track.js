@@ -5,35 +5,43 @@ import {bindActionCreators} from 'redux';
 import { isLoaded, load } from 'redux/modules/track';
 
 @connect(
-    state => ({info: state.info.data}),
+    state => ({track: state.track}),
     dispatch => bindActionCreators({load}, dispatch))
 
 export default class Track extends Component {
   static propTypes = {
-    info: PropTypes.object,
+    track: PropTypes.object,
+    props: PropTypes.object,
     load: PropTypes.func.isRequired
   }
+
+  componentWillReceiveProps(nextProps) {
+    // I'd like to do something like the following every time the props change
+    if( nextProps.params.id !== this.props.params.id) {
+      this.context.store.dispatch(load(nextProps.params.id));
+    }
+  }
+
+
+  // This is for the server side fetching of the data
   static fetchData(store) {
     const promises = [];
     if (!isLoaded(store.getState())) {
+      //I'd like to have the current this.params.id to pass inside load.
       promises.push(store.dispatch(load()));
     }
     return Promise.all(promises);
   }
 
   render() {
-    const {info, load} = this.props; // eslint-disable-line no-shadow
+    const {track} = this.props; // eslint-disable-line no-shadow
     // require the logo image both from client and server
     return (
       <div>
-          test <br /><br /><br /><br />
-          props<br /><br /><br /><br />
-          { }
-          <span>-----------</span> <br/>
-
+          {this.props} 
+          {track}
           <br /><br /><br /><br />
-          {info ? info.message : 'no info!'}
-          <br /><br /><br /><br /><a onClick={load()}> test </a>
+          <br /><br /><br /><br /><a> test </a>
          <div className="container-fluid">
           <div className="row margin-bottom">
             <ReleaseSection title="Release Session" releases={[
