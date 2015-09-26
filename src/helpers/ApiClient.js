@@ -42,12 +42,14 @@ class ApiClient_ {
     console.log('received request for ' + path);
     const adjustedPath = path[0] !== '/' ? '/' + path : path;
     if (__SERVER__) {
-      console.log(path);
       if (path === '/loadInfo' || path === '/loadAuth') {
         return 'http://localhost:3030' + adjustedPath;
       }
       // Prepend host and port of the API server to the path.
       return 'http://localhost:' + config.apiPort + adjustedPath;
+    }
+    if (path === '/loadInfo' || path === '/loadAuth') {
+        return 'http://localhost:3030' + adjustedPath;
     }
     // Prepend `/api` to relative URL, to proxy to API server.
     return '/api' + adjustedPath;
