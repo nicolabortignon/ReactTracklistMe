@@ -37,8 +37,9 @@ export function isLoaded(globalState) {
 }
 
 export function load(trackId = 53) {
+  console.log('load called');
   return {
-    types: [LOAD, LOAD_SUCCESS, LOAD_FAIL],
-    promise: (client) => client.get('/tracks/' + trackId)
+    promise: (client) => client.get('/tracks/' + trackId),
+    types: [LOAD, LOAD_SUCCESS, LOAD_FAIL]
   };
 }

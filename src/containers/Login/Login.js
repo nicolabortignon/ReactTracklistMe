@@ -30,7 +30,7 @@ export default class Login extends Component {
   }
 
   render() {
-    const {user, logout} = this.props; 
+    const {user, logout} = this.props;
     return (
       <div className={' container'}>
         <DocumentMeta title="React Redux Example: Login"/>

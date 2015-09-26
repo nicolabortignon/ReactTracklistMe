@@ -35,11 +35,10 @@ export default class WidgetForm extends Component {
   render() {
     const { editStop, fields: {id, color, sprocketCount, owner}, formKey, handleBlur, handleChange, handleSubmit, invalid,
       pristine, save, submitting, saveError: { [formKey]: saveError }, values } = this.props;
-    const styles = require('containers/Widgets/Widgets.scss');
     return (
-      <tr className={submitting ? styles.saving : ''}>
-        <td className={styles.idCol}>{id.value}</td>
-        <td className={styles.colorCol}>
+      <tr>
+        <td>{id.value}</td>
+        <td>
           <select name="color"
                   className="form-control"
                   value={color.value}
@@ -49,7 +48,7 @@ export default class WidgetForm extends Component {
           </select>
           {color.error && color.touched && <div className="text-danger">{color.error}</div>}
         </td>
-        <td className={styles.sprocketsCol}>
+        <td>
           <input type="text"
                  className="form-control"
                  value={sprocketCount.value}
@@ -57,7 +56,7 @@ export default class WidgetForm extends Component {
                  onBlur={handleBlur('sprocketCount')}/>
           {sprocketCount.error && sprocketCount.touched && <div className="text-danger">{sprocketCount.error}</div>}
         </td>
-        <td className={styles.ownerCol}>
+        <td>
           <input type="text"
                  className="form-control"
                  value={owner.value}
@@ -65,7 +64,7 @@ export default class WidgetForm extends Component {
                  onBlur={handleBlur('owner')}/>
           {owner.error && owner.touched && <div className="text-danger">{owner.error}</div>}
         </td>
-        <td className={styles.buttonCol}>
+        <td>
           <button className="btn btn-default"
                   onClick={() => editStop(formKey)}
                   disabled={submitting}>

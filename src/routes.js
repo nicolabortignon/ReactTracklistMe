@@ -1,6 +1,5 @@
 import React from 'react';
-import { createHistory } from 'history';
-import {Router, Route} from 'react-router';
+import {Route} from 'react-router';
 import {
     App,
     Chat,
@@ -15,17 +14,14 @@ import {
     NotFound,
   } from 'containers';
 
-const history = createHistory();
-
 export default function() {
   return (
-    <Router history={history}>
       <Route component={App}>
         <Route path="/" component={Home}/>
         <Route path="/widgets" component={Widgets}/>
         <Route path="/about" component={About}/>
         <Route path="/login" component={Login}/>
-        <Route path="/track/:id" component={Track}/>
+        <Route path="/track" component={Track}/>
         <Route component={RequireLogin}>
           <Route path="/chat" component={Chat}/>
           <Route path="/loginSuccess" component={LoginSuccess}/>
@@ -33,6 +29,5 @@ export default function() {
         <Route path="/survey" component={Survey}/>
         <Route path="*" component={NotFound}/>
       </Route>
-    </Router>
   );
 }

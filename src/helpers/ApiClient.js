@@ -39,11 +39,13 @@ class ApiClient_ {
 
   /* This was originally a standalone function outside of this class, but babel kept breaking, and this fixes it  */
   formatUrl(path) {
-    if (path === '/loadInfo' || path === '/loadAuth') {
-      return;
-    }
+    console.log('received request for ' + path);
     const adjustedPath = path[0] !== '/' ? '/' + path : path;
     if (__SERVER__) {
+      console.log(path);
+      if (path === '/loadInfo' || path === '/loadAuth') {
+        return 'http://localhost:3030' + adjustedPath;
+      }
       // Prepend host and port of the API server to the path.
       return 'http://localhost:' + config.apiPort + adjustedPath;
     }

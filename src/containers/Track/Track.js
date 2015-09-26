@@ -1,24 +1,56 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import { ReleaseSection, ArtistSection, StuffPicksSection, BlogSection } from 'components';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { load } from 'redux/modules/track';
 
-export default class Track extends Component {
-  componentWillReceiveProps(nextProps) {
-    console.log('-----------');
-    console.log(nextProps);
+@connect(
+  store => ({
+    track: store.track.data,
+    error: store.settings.error
+  }),
+  dispatch => bindActionCreators({ load }, dispatch)
+)
+export default class Track extends Component
+{
+  static propTypes = {
+    load: PropTypes.func.isRequired,
+    track: PropTypes.object,
+    error: PropTypes.object
   }
 
-  static fetchData(store) {
+  static contextTypes = {
+    store: PropTypes.object.isRequired
+  }
+
+  componentDidMount() {
+    // to do: remove second loading here for client-side navigation
+    // to do: remove loading here for server-side rendered page
+    this.constructor.preload(this.context.store);
+  }
+
+  static preload(store) {
     const promises = [];
-    console.log(store);
+    // if (!are_settings_loaded(store.getState()))
+    // {
+    promises.push(store.dispatch(load()));
+    // }
     return Promise.all(promises);
   }
 
-
   render() {
+    const { error, track } = this.props;
     return (
       <div>
+        {error}
+        {track}
+        -----
+        {this.props}
           <br /><br /><br /><br />
           <br /><br /><br /><br /><a> test </a>
+        {track}
+        -----
+        {this.props}
          <div className="container-fluid">
           <div className="row margin-bottom">
             <ReleaseSection title="Release Session" releases={[
