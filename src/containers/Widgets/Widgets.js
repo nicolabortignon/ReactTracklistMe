@@ -21,8 +21,7 @@ import { WidgetForm } from 'components';
     }, dispatch)
   })
 )
-export default
-class Widgets extends Component {
+export default class Widgets extends Component {
   static propTypes = {
     widgets: PropTypes.array,
     error: PropTypes.string,

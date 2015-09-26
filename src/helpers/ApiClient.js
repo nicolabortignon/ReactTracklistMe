@@ -39,7 +39,7 @@ class ApiClient_ {
 
   /* This was originally a standalone function outside of this class, but babel kept breaking, and this fixes it  */
   formatUrl(path) {
-    if (path == "/loadInfo" || path == "/loadAuth") {
+    if (path === '/loadInfo' || path === '/loadAuth') {
       return;
     }
     const adjustedPath = path[0] !== '/' ? '/' + path : path;

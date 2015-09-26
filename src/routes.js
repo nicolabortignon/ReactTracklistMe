@@ -1,5 +1,6 @@
 import React from 'react';
-import {Route} from 'react-router';
+import { createHistory } from 'history';
+import {Router, Route} from 'react-router';
 import {
     App,
     Chat,
@@ -14,20 +15,24 @@ import {
     NotFound,
   } from 'containers';
 
+const history = createHistory();
+
 export default function() {
   return (
-    <Route component={App}>
-      <Route path="/" component={Home}/>
-      <Route path="/widgets" component={Widgets}/>
-      <Route path="/about" component={About}/>
-      <Route path="/login" component={Login}/>
-      <Route path="/track/:id" component={Track}/>
-      <Route component={RequireLogin}>
-        <Route path="/chat" component={Chat}/>
-        <Route path="/loginSuccess" component={LoginSuccess}/>
+    <Router history={history}>
+      <Route component={App}>
+        <Route path="/" component={Home}/>
+        <Route path="/widgets" component={Widgets}/>
+        <Route path="/about" component={About}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/track/:id" component={Track}/>
+        <Route component={RequireLogin}>
+          <Route path="/chat" component={Chat}/>
+          <Route path="/loginSuccess" component={LoginSuccess}/>
+        </Route>
+        <Route path="/survey" component={Survey}/>
+        <Route path="*" component={NotFound}/>
       </Route>
-      <Route path="/survey" component={Survey}/>
-      <Route path="*" component={NotFound}/>
-    </Route>
+    </Router>
   );
 }

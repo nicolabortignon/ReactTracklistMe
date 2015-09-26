@@ -96,7 +96,7 @@ export default class App extends Component {
                 <Link to="/"> <img src={logo} /></Link>
                 <ul>
                   <li><Link to="/track/73"> Artists &amp; bands </Link></li>
-                  <li><Link to="/track/53"><a href="#">Genres</a></Link></li>
+                  <li><Link to="/track/53"> Genres </Link></li>
                   <li><a href="#">Labels</a></li>
                 </ul>
               </li>
