@@ -3,9 +3,7 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import DocumentMeta from 'react-document-meta';
-import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
-import { InfoBar } from 'components';
 
 const title = 'React Redux Example';
 const description = 'All the modern best practices in one example.';
@@ -62,9 +60,6 @@ export default class App extends Component {
 
   static fetchData(store) {
     const promises = [];
-    if (!isInfoLoaded(store.getState())) {
-      promises.push(store.dispatch(loadInfo()));
-    }
     if (!isAuthLoaded(store.getState())) {
       promises.push(store.dispatch(loadAuth()));
     }
@@ -143,7 +138,6 @@ export default class App extends Component {
         <div className={styles.appContent}>
           {this.props.children}
         </div>
-        <InfoBar/>
         <footer className="row darkestrow">
           <div className="pull-right col-xs-4 col-sm-4col-md-4 col-lg-4">
             <a href="#"><img src={logo} /></a>

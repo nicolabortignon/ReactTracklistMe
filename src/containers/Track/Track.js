@@ -6,17 +6,14 @@ import { load } from 'redux/modules/track';
 
 @connect(
   store => ({
-    track: store.track.data,
-    error: store.settings.error
+    track: store.track.data
   }),
   dispatch => bindActionCreators({ load }, dispatch)
 )
 export default class Track extends Component
 {
-  static propTypes = {
-    load: PropTypes.func.isRequired,
-    track: PropTypes.object,
-    error: PropTypes.object
+  static propTypes = {  
+    track: PropTypes.array
   }
 
   static contextTypes = {
@@ -39,10 +36,9 @@ export default class Track extends Component
   }
 
   render() {
-    const { error, track } = this.props;
+    const { track } = this.props;
     return (
       <div>
-        {error}
         {track}
         -----
         {this.props}

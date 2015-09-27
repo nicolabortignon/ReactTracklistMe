@@ -49,7 +49,7 @@ class ApiClient_ {
       return 'http://localhost:' + config.apiPort + adjustedPath;
     }
     if (path === '/loadInfo' || path === '/loadAuth') {
-        return 'http://localhost:3030' + adjustedPath;
+      return 'http://localhost:3030' + adjustedPath;
     }
     // Prepend `/api` to relative URL, to proxy to API server.
     return '/api' + adjustedPath;
