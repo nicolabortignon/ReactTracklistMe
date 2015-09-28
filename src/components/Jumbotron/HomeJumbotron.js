@@ -1,4 +1,5 @@
 import React, {Component, PropTypes } from 'react';
+import MainHeaderBackground from '../MainHeader/MainHeaderBackground';
 import MainHeader from '../MainHeader/MainHeader';
 import MiniHeader from '../MiniHeader/MiniHeader';
 
@@ -6,12 +7,7 @@ export default class HomeJumbotron extends Component {
   render() {
     return (
       <div>
-        <div className="header">
-          <img className="header_background" src={'http://www.thissongslaps.com/wp-content/uploads/2014/12/chemical-brothers.jpg'} />
-          <div className="header_shades_holder">
-            <div className="header_grey_overlay"> </div>
-          </div>
-        </div>
+        <MainHeaderBackground image={'http://www.thissongslaps.com/wp-content/uploads/2014/12/chemical-brothers.jpg'} />
         <div className="headerContent">
           <div className="row">
             <div className="col-sub-xs-18 col-sub-sm-18 col-sub-md-12 col-sub-lg-12">

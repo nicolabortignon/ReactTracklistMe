@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import { ReleaseSection, ArtistSection, StuffPicksSection, BlogSection } from 'components';
+import { TrackJumbotron, ReleaseSection, ArtistSection, StuffPicksSection, BlogSection } from 'components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { load } from 'redux/modules/track';
@@ -12,8 +12,9 @@ import { load } from 'redux/modules/track';
 )
 export default class Track extends Component
 {
-  static propTypes = {  
-    track: PropTypes.array
+  static propTypes = {
+    params: PropTypes.object,
+    track: PropTypes.object
   }
 
   static contextTypes = {
@@ -23,14 +24,17 @@ export default class Track extends Component
   componentDidMount() {
     // to do: remove second loading here for client-side navigation
     // to do: remove loading here for server-side rendered page
-    this.constructor.preload(this.context.store);
+    console.log('>>>>>');
+    console.log(this.props.params.id);
+    console.log('>>>');
+    this.constructor.preload(this.context.store, this.props.params.id);
   }
 
-  static preload(store) {
+  static preload(store, id) {
     const promises = [];
     // if (!are_settings_loaded(store.getState()))
     // {
-    promises.push(store.dispatch(load()));
+    promises.push(store.dispatch(load(id)));
     // }
     return Promise.all(promises);
   }
@@ -39,14 +43,14 @@ export default class Track extends Component
     const { track } = this.props;
     return (
       <div>
-        {track}
+        <TrackJumbotron {...this.props} />
         -----
-        {this.props}
           <br /><br /><br /><br />
           <br /><br /><br /><br /><a> test </a>
-        {track}
+          -----
+          {track ? track.version : ' asd '}
         -----
-        {this.props}
+        {JSON.stringify(track)}
          <div className="container-fluid">
           <div className="row margin-bottom">
             <ReleaseSection title="Release Session" releases={[
