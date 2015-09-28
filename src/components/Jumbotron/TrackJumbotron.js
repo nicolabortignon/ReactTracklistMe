@@ -12,7 +12,8 @@ export default class TrackJumbotron extends Component {
         <MainHeaderBackground image={track ? track.cover : ''} />
         <div className="headerContent">
           <div className="row">
-            <div className="col-sub-xs-18 col-sub-sm-18 col-sub-md-12 col-sub-lg-12">
+            <div className="col-sub-xs-18 col-sub-sm-18 col-sub-md-5 col-sub-lg-5">
+              <img className="col-sub-lg-18 coverImage" src={track ? track.cover : ''} />
             </div>
           </div>
         </div>
