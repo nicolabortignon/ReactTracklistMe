@@ -11,6 +11,7 @@ export InfoBar from './InfoBar/InfoBar';
 export MiniInfoBar from './MiniInfoBar/MiniInfoBar';
 export SurveyForm from './SurveyForm/SurveyForm';
 export WidgetForm from './WidgetForm/WidgetForm';
+export WidgetForm from './Buttons/CustomButton';
 export MainHeaderBanner from './MainHeader/MainHeader';
 export MainHeaderBanner from './MainHeader/MainHeaderBackground';
 export MiniHeader from './MiniHeader/MiniHeader';

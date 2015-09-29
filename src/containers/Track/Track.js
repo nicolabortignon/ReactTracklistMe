@@ -44,13 +44,6 @@ export default class Track extends Component
     return (
       <div>
         <TrackJumbotron {...this.props} />
-        -----
-          <br /><br /><br /><br />
-          <br /><br /><br /><br /><a> test </a>
-          -----
-          {track ? track.version : ' asd '}
-        -----
-        {JSON.stringify(track)}
          <div className="container-fluid">
           <div className="row margin-bottom">
             <ReleaseSection title="Release Session" releases={[
@@ -203,6 +196,7 @@ export default class Track extends Component
               }
             ]}/>
           </div>
+          {track ? track.cover : ''}
           <div className="row margin-bottom">
             <ReleaseSection title="New Tracks" releases={[
               {
